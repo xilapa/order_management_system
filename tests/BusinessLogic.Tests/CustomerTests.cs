@@ -50,5 +50,59 @@ namespace BusinessLogic.Tests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void ValidateValid()
+        {
+            // Arrange
+            var customer = new Customer()
+            {
+                LastName = "Wick",
+                Email = "j.wick@email.com"
+            };
+            var expected = true;
+            
+            // Act
+            var actual = customer.Validate();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void ValidateLastNameEmpty()
+        {
+            // Arrange
+            var customer = new Customer()
+            {
+                LastName = "",
+                Email = "j.wick@email.com"
+            };
+            var expected = false;
+            
+            // Act
+            var actual = customer.Validate();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void ValidateEmailEmpty()
+        {
+            // Arrange
+            var customer = new Customer()
+            {
+                LastName = "Wick",
+                Email = ""
+            };
+            var expected = false;
+            
+            // Act
+            var actual = customer.Validate();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }        
     }
 }

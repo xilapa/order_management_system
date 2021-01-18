@@ -1,7 +1,18 @@
+using System;
+using System.Collections.Generic;
+
 namespace BusinessLogic
 {
     public class Customer
     {
+        public Customer()
+        {
+            
+        }
+        public Customer(int customerId)
+        {
+            CustomerId = customerId;
+        }
         public int CustomerId {get; private set;}
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -28,16 +39,41 @@ namespace BusinessLogic
         /// <returns></returns>
         public bool Validate()
         {
-            var isvalid = true;
+            var isValid = true;
 
-            if (string.IsNullOrWhiteSpace(LastName))
-                isvalid = false;
-            if (string.IsNullOrWhiteSpace(Email))
-                isvalid = false;
+            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+            if (string.IsNullOrWhiteSpace(Email)) isValid = false;
             
-            return isvalid;
+            return isValid;
         }
 
+        /// <summary>
+        /// Retrieve a costumer from ID
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        public Customer Retrieve(int customerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Retrieve a list with all customers
+        /// </summary>
+        /// <returns></returns>
+        public static List<Customer> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Save the current customer information
+        /// </summary>
+        /// <param name="customerId"></param>
+        public void Save(int customerId)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }
