@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace BusinessLogic
@@ -7,16 +6,16 @@ namespace BusinessLogic
     {
         public Customer()
         {
-            
+            Addresses = new List<Address>();
         }
-        public Customer(int customerId)
+        public Customer(int customerId) : this() 
         {
             CustomerId = customerId;
         }
         public int CustomerId {get; private set;}
+        public CustomerType CustomerType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public string FullName 
         { 
             get
@@ -30,8 +29,8 @@ namespace BusinessLogic
             }
         
         }
-    
         public string Email { get; set; }
+        public List<Address> Addresses { get; set;}
     
         /// <summary>
         /// Validates the customer data.
@@ -40,40 +39,10 @@ namespace BusinessLogic
         public bool Validate()
         {
             var isValid = true;
-
             if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
             if (string.IsNullOrWhiteSpace(Email)) isValid = false;
             
             return isValid;
         }
-
-        /// <summary>
-        /// Retrieve a costumer from ID
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        public Customer Retrieve(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Retrieve a list with all customers
-        /// </summary>
-        /// <returns></returns>
-        public static List<Customer> RetrieveAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Save the current customer information
-        /// </summary>
-        /// <param name="customerId"></param>
-        public void Save(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

@@ -7,16 +7,20 @@ namespace BusinessLogic
     {
         public Order()
         {
-            
+            OrderItems = new List<OrderItem>();
         }  
 
-        public Order(int orderId)
+        public Order(int orderId) : this ()
         {
             OrderId = orderId;
         }
         public int OrderId { get; private set; }
-
         public DateTimeOffset? OrderDate { get; set; }
+        public int CustomerID { get; set; }
+        public Address ShippingAddress { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; }
+
 
         /// <summary>
         /// Validates the order data.
@@ -30,34 +34,5 @@ namespace BusinessLogic
             
             return isValid;
         }
-
-        /// <summary>
-        /// Retrieve a order from ID
-        /// </summary>
-        /// <param name="orderId"></param>
-        /// <returns></returns>
-        public Order Retrieve(int orderId)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Retrieve a list with all orders
-        /// </summary>
-        /// <returns></returns>
-        public static List<Order> RetrieveAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Save the current order information
-        /// </summary>
-        /// <param name="orderId"></param>
-        public void Save(int orderId)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

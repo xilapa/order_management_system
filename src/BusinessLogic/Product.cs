@@ -7,10 +7,10 @@ namespace BusinessLogic
     {
         public Product()
         {
-            
+            PriceHistory = new List<Price>();
         }
 
-        public Product(int productId)
+        public Product(int productId) : this()
         {
             ProductId = productId;
         }
@@ -60,33 +60,6 @@ namespace BusinessLogic
             return isValid;
         }
 
-        /// <summary>
-        /// Retrieve a product from ID
-        /// </summary>
-        /// <param name="productId"></param>
-        /// <returns></returns>
-        public Product Retrieve(int productId)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Retrieve a list with all products
-        /// </summary>
-        /// <returns></returns>
-        public static List<Product> RetrieveAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Save the current product information
-        /// </summary>
-        /// <param name="productId"></param>
-        public void Save(int productId)
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }
