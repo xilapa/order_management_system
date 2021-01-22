@@ -1,6 +1,6 @@
 namespace BusinessLogic
 {
-    public class Address
+    public class Address : EntityBase
     {
         public Address()
         {
@@ -25,7 +25,7 @@ namespace BusinessLogic
         /// Validate the address
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 

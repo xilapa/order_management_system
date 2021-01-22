@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace BusinessLogic
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer()
         {
@@ -36,7 +36,7 @@ namespace BusinessLogic
         /// Validates the customer data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
@@ -44,5 +44,7 @@ namespace BusinessLogic
             
             return isValid;
         }
+
+        public override string ToString() => FullName;
     }
 }

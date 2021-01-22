@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BusinessLogic
 {
-    public class Order
+    public class Order : EntityBase
     {
         public Order()
         {
@@ -21,12 +21,11 @@ namespace BusinessLogic
 
         public List<OrderItem> OrderItems { get; set; }
 
-
         /// <summary>
         /// Validates the order data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
@@ -34,5 +33,7 @@ namespace BusinessLogic
             
             return isValid;
         }
+
+        public override string ToString() => ($"{OrderDate} : {OrderId}");
     }
 }

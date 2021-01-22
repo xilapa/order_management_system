@@ -30,7 +30,28 @@ namespace BusinessLogic
         /// <param name="productId"></param>
         public bool Save(Product product)
         {
-            throw new NotImplementedException();
+            var success = true;
+
+            if (product.HasChanges)
+            {
+                if(product.IsValid)
+                {
+                    if (product.IsNew)
+                    {
+                        // code to insert data
+                    }
+                    else
+                    {
+                        // code to update data
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+
+            return success;
         }
 
     }

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic
 {
-    public class Product
+    public class Product : EntityBase
     {
         public Product()
         {
@@ -23,7 +24,7 @@ namespace BusinessLogic
         { 
             get 
             {
-                return PriceHistory[-1].Value;
+                return PriceHistory.Last().Value;
             }
         }
 
@@ -44,22 +45,22 @@ namespace BusinessLogic
             PriceHistory.Add(p);
         }
 
-
         /// <summary>
         /// Validates the product data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
             if (string.IsNullOrWhiteSpace(Name)) isValid = false;
             if (string.IsNullOrWhiteSpace(Description)) isValid = false;
             if (!CurrentPrice.HasValue) isValid = false;
+            Console.WriteLine("price",CurrentPrice);
             
             return isValid;
         }
-
-
+        
+        public override string ToString() => Name;
     }
 }
