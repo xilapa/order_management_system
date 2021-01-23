@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CommonLibrary;
 
 namespace BusinessLogic
 {
@@ -17,7 +18,20 @@ namespace BusinessLogic
         }
 
         public int ProductId { get; }
-        public string Name { get; set; }
+
+        private string name;
+        public string Name 
+        { 
+            get
+            {
+                return name.InsertSpace();
+            }
+        
+            set
+            {
+                name = value;
+            } 
+        }
         public string Description { get; set; }
         public List<Price> PriceHistory { get; private set; }
         public decimal? CurrentPrice 
@@ -56,7 +70,6 @@ namespace BusinessLogic
             if (string.IsNullOrWhiteSpace(Name)) isValid = false;
             if (string.IsNullOrWhiteSpace(Description)) isValid = false;
             if (!CurrentPrice.HasValue) isValid = false;
-            Console.WriteLine("price",CurrentPrice);
             
             return isValid;
         }

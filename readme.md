@@ -9,5 +9,6 @@
 - Relacionamento entre classes
 - Design pattern repository
 - FluentAssertions
+- Regular Expressions
 
 

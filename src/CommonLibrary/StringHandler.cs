@@ -2,10 +2,17 @@
 
 namespace CommonLibrary
 {
-    public class StringHandler
+    public static class StringHandler
     {
-        public string InsertSpace(string source)
+        /// <summary>
+        /// Insert spaces after upercase letters
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static string InsertSpace(this string source)
         {
+            if (string.IsNullOrEmpty(source)) source = string.Empty;
+
             var result = string.Empty;
             var pattern = "[A-Z][a-z]*";
             var matches = Regex.Matches(source,pattern);
@@ -17,7 +24,9 @@ namespace CommonLibrary
                 else
                 result += matches[i].Value + " ";
             }
+
             return result;
         }
+
     }
 }
