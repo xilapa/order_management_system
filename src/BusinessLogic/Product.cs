@@ -5,7 +5,7 @@ using CommonLibrary;
 
 namespace BusinessLogic
 {
-    public class Product : EntityBase
+    public class Product : EntityBase, ILoggable
     {
         public Product()
         {
@@ -18,7 +18,6 @@ namespace BusinessLogic
         }
 
         public int ProductId { get; }
-
         private string name;
         public string Name 
         { 
@@ -75,5 +74,7 @@ namespace BusinessLogic
         }
         
         public override string ToString() => Name;
+
+        public string Log() => $"{ProductId} : {Name} - Details: {Description} - Status {EntityState}";
     }
 }

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using CommonLibrary;
 
 namespace BusinessLogic
 {
-    public class Customer : EntityBase
+    public class Customer : EntityBase, ILoggable
     {
         public Customer()
         {
@@ -46,5 +47,7 @@ namespace BusinessLogic
         }
 
         public override string ToString() => FullName;
+
+        public string Log() => $"{CustomerId} : {FullName} - {Email} - Status: {EntityState}";
     }
 }

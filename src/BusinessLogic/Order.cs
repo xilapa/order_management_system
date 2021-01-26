@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using CommonLibrary;
 
 namespace BusinessLogic
 {
-    public class Order : EntityBase
+    public class Order : EntityBase, ILoggable
     {
         public Order()
         {
@@ -35,5 +36,7 @@ namespace BusinessLogic
         }
 
         public override string ToString() => ($"{OrderDate} : {OrderId}");
+
+        public string Log() => $"{OrderId} : {OrderDate} - CustomerID: {CustomerID} - Status: {EntityState}";
     }
 }
